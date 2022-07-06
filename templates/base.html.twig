@@ -18,6 +18,12 @@
     {% endblock %}
 </head>
 <body>
+{% block navbar %}
+    <div class="navbar">
+       <a href={{ path('app_home') }}> <div class="nav-el">Home</div></a>
+        <a href={{ path('app_parties') }}><div class="nav-el">Parties</div></a>
+    </div>
+{% endblock %}
 {% block param %}
     {% if param is defined %}
         <div class="params">

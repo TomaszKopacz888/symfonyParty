@@ -50,6 +50,7 @@ class PartiesController extends AbstractController
     }
 
     /**
+     * @param Request $request
      * @param ManagerRegistry $doctrine
      * @return Response
      * @Route ("/party", name="app_party")
@@ -57,6 +58,6 @@ class PartiesController extends AbstractController
     public function party(Request $request,ManagerRegistry $doctrine):Response{
         $id=$request->query->get('id');
         $party=$doctrine->getRepository(Party::class)->findBy(['id'=>$id]);
-        return $this->render('parties/party.html.twig', ['party'=>$party]);
+        return $this->render('parties/party.html.twig', ['party'=>$party[0]]);
     }
 }
